@@ -11,7 +11,7 @@ import (
 func main() {
 	app := cli.NewApp()
 	app.Name = "servicebroker"
-	app.Usage = "Start the servicebroker components hi1"
+	app.Usage = "Start the servicebroker components hi2"
 	app.Version = "1.0.0"
 	app.Action = func(c *cli.Context) {
 		router := gin.Default()
