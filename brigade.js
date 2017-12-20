@@ -16,5 +16,9 @@ events.on("push", (e, p) => {
   // ];
   // test.run()
   var job = new Job("do-nothing", "alpine:3.4")
+  job.tasks = [
+    "sleep 20",
+    "ls /src"
+  ];
   job.run()
 });
