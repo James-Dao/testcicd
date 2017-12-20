@@ -4,6 +4,8 @@ import (
 	log "github.com/Sirupsen/logrus"
 	"github.com/codegangsta/cli"
 	"github.com/gin-gonic/gin"
+	"github.com/google/go-github/github"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"time"
@@ -69,7 +71,7 @@ func handleEvent(c *gin.Context, eventType string) {
 	}
 	defer c.Request.Body.Close()
 
-	e, err := github.ParseWebHook(eventType, body)
+	_, err = github.ParseWebHook(eventType, body)
 	if err != nil {
 		log.Printf("Failed to parse body: %s", err)
 		c.JSON(http.StatusBadRequest, gin.H{"status": "Malformed body"})
