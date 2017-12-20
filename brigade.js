@@ -5,6 +5,7 @@ events.on("push", (e, p) => {
   console.log(e.payload)
   var gh = JSON.parse(e.payload)
   var test = new Job("test", "golang:1.9")
+  test.storage.enabled = false
   test.tasks = [
     "mkdir -p " + dest,
     "cp -a /src/* " + dest,
